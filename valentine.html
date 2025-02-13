@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Surprise</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="1.jpg" as="image">
+    <link rel="preload" href="2.jpg" as="image">
+    <link rel="preload" href="3.jpg" as="image">
+    <link rel="preload" href="4.jpg" as="image">
+    <link rel="preload" href="5.jpg" as="image">
+    <link rel="preload" href="6.jpg" as="image">
+    <link rel="preload" href="7.jpg" as="image">
+    <link rel="preload" href="8.jpg" as="image">
+    <link rel="preload" href="9.jpg" as="image">
+    <link rel="preload" href="10.jpg" as="image">
+    <link rel="preload" href="surprise-gif.gif" as="image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        function checkSessionStorage(){
+        if(new Date().getTime() - sessionStorage.getItem('loginTime') > 3600000) {
+            sessionStorage.removeItem('authenticated');
+            sessionStorage.removeItem('loginTime');
+        }
+        // Check if the user has been authenticated
+        if (!sessionStorage.getItem('authenticated')) {
+            // If not authenticated, redirect to the login page
+            window.location.href = 'index.html';
+            return true;
+        }
+        return false;
+    }
+     // Check session storage on page load
+     if (!checkSessionStorage()) {
+          // Attach a click event listener to the document
+          document.addEventListener('click', function() {
+              checkSessionStorage();
+          });
+          document.addEventListener('scroll', function() {
+              checkSessionStorage();
+          });
+        }
+    </script>
+</head>
+<body class="dark-mode">
+    
+    <!-- Background Music -->
+    <audio id="background-music" loop preload="auto">
+        <source src="audio.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <header>
+        <h1>Happy Valentine's Day, <span class="her-name">[Her Name]</span>! ❤️</h1>
+    </header>
+
+    <br>
+
+    <section id="message">
+        <h2>A Message from Me...</h2>
+        <p>My love for you grows every day. <br> You're my everything.</p> 
+        <br>    
+        <button id="showGif" type="button">Click for a Surprise!</button>
+        <div id="gif-container"></div>
+    </section>
+
+    <section id="cube-section">
+        <h2>❤️ My Beautiful !</h2>
+        <div id="cube-container-1" class="cube-container"></div>
+    </section>
+
+    <section id="cube-section">
+        <h2>👩‍❤️‍👨 Our First Date</h2>
+        <div id="cube-container-2" class="cube-container"></div>
+    </section>
+
+    <section id="cube-section">
+        <h2>💍 Our Engagement</h2>
+        <div id="cube-container-3" class="cube-container"></div>
+    </section>
+    <section id="cube-section">
+        <h2>🍩 My Bithday</h2>
+        <div id="cube-container-4" class="cube-container"></div>
+    </section>
+    <section id="cube-section">
+        <h2>👸 Your Birthday</h2>
+        <div id="cube-container-5" class="cube-container"></div>
+    </section>
+
+    <!-- Interactive Quiz -->
+    <section id="quiz">
+        <h2>How Well Do You Know Me?</h2>
+        <button id="start-quiz">Take the Quiz!</button>
+    </section>
+
+    <!-- Quiz Modal - Moved outside main content flow -->
+    <div id="quiz-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-button"><i class="fas fa-times"></i></span>
+            </div>
+            <h2 id="quiz-question"></h2>
+            <div id="quiz-options"></div>
+            <button id="next-question">Next</button>
+        </div>
+    </div>
+
+    <section id="countdown">
+        <h2>Countdown to the Big Reveal</h2>
+        <p>Time until your next surprise:</p>
+        <div id="timer"></div>
+    </section>
+
+    <footer>
+        <p>Created with ❤️ by Sagar.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>

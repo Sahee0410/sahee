@@ -1,0 +1,391 @@
+/* Global Styling */
+:root {
+    --primary-color: #E91E63; /* Deep Pink */
+    --secondary-color: #9C27B0; /* Purple */
+    --text-color: #e0e0e0; /* Light Gray */
+    --background-color: #121212; /* Dark Gray */
+    --border-radius: 25px; /* More Rounded */
+    --spacing-unit: 16px;
+    --heart-red: #FF4081; /* A Vibrant Red */
+
+    /* Dark Mode Colors */
+    --dark-mode-background: #121212;
+    --dark-mode-text: #e0e0e0;
+    --dark-mode-section: #212121;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--dark-mode-background);
+    color: var(--text-color);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Romantic Background Animation */
+    background-image: url('dark-heart-pattern.png'); /* Dark Heart Pattern */
+    animation: backgroundScroll 20s linear infinite, fadeIn 2s ease-in-out; /* Added Fade-in */
+}
+
+/* Keyframes for Background Animation */
+@keyframes backgroundScroll {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Header */
+header {
+    background-color: #333; /* Darker Header */
+    color: var(--dark-mode-text);
+    padding: calc(var(--spacing-unit) * 1.5);
+    animation: fadeIn 2s ease-in-out, slideDown 1s ease-out; /* Added Slide Down */
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 2.2em; /* Slightly Larger */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2); /* Light Shadow */
+    animation: pulse 2s infinite alternate; /* Added Pulse Animation */
+}
+
+h2 {
+    font-size: 1.8em; /* Slightly Larger */
+    margin: var(--spacing-unit) 0;
+    color: var(--heart-red); /* Heart Red */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1); /* Light Shadow */
+}
+
+/* Button Styling */
+button {
+    background-color: #555; /* Darker Button */
+    color: var(--dark-mode-text);
+    border: none;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    font-size: 1.1em; /* Slightly Larger */
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: all 0.3s;
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.15); /* Light Shadow */
+    margin-bottom: 0.5em; /* Reduced margin-bottom */
+    animation: float 3s infinite alternate, glowing 5s linear infinite; /* Added Glowing */
+}
+
+button:hover {
+    background-color: var(--primary-color); /* Deep Pink */
+    transform: scale(1.1);
+}
+
+/* Countdown Timer */
+#countdown {
+    background-color: #333; /* Darker Countdown */
+    color: var(--dark-mode-text);
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius);
+    margin: var(--spacing-unit) 0;
+    font-size: 1.3em; /* Slightly Larger */
+    font-weight: bold;
+    animation: pulse 1s infinite alternate;
+    isolation: isolate;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); /* Light Shadow */
+}
+
+/* Keyframes */
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px var(--heart-red);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--heart-red);
+    }
+    100% {
+        box-shadow: 0 0 5px var(--heart-red);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+/* GIF Surprise */
+#gif-container {
+    width: 100%;
+    min-height: 0; /* Modified: set to 0 */
+    margin-top: 0; /* Modified: set to 0 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Remove padding */
+    border: none; /* Remove border */
+    background-color: transparent; /* Make background transparent */
+    overflow: hidden; /* Hide potential content overflow */
+}
+
+.gif-surprise {
+    width: 100%;
+    max-width: 350px; /* Slightly Larger */
+    height: auto;
+    border-radius: var(--border-radius);
+    /*box-shadow: 3px 3px 7px rgba(255, 255, 255, 0.2);  Light Shadow */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+    background-color: transparent; /* Make background transparent */
+    display: block; /* Ensure it takes full width */
+    animation: rotate 10s linear infinite, depth 5s ease-in-out infinite alternate; /* Rotate GIF */
+}
+
+/*Quiz Model */
+.modal-content {
+    background: linear-gradient(to bottom, #333, #444); /* Dark Gradient */
+    border-radius: var(--border-radius);
+    margin: 0; /* Remove default margin */
+    max-width: 95%;
+    width: auto;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.3); /* Light Shadow */
+    overflow: hidden; /* Prevent content from overflowing rounded corners */
+    animation: zoomIn 1s ease-out; /* Added Zoom In */
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes depth {
+    0% {
+        transform: translateZ(0px);
+    }
+
+    100% {
+        transform: translateZ(20px);
+    }
+}
+
+/* Quiz Modal - MOBILE-FIRST, ROMANTIC THEME */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark Background */
+    z-index: 10;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 20px;
+
+    /* Center the content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Header */
+.modal-header {
+    position: relative;
+    padding: var(--spacing-unit);
+    background-color: var(--heart-red); /* Heart Red */
+    color: var(--dark-mode-text);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Quiz Question */
+#quiz-question {
+    font-size: 1.3em; /* Slightly Larger */
+    margin-bottom: var(--spacing-unit);
+    color: var(--dark-mode-text);
+    text-align: center; /* Center the question */
+}
+
+/* Quiz Options */
+#quiz-options {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 var(--spacing-unit); /* Add side padding */
+    box-sizing: border-box;
+}
+
+#quiz-options button {
+    padding: var(--spacing-unit);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    border: 2px solid #555; /* Darker Border */
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    text-align: center; /* Center the options */
+    background-color: #444; /* Darker Background */
+    color: var(--dark-mode-text);
+    transition: all 0.3s;
+    font-size: 1.1em; /* Slightly Larger */
+}
+
+#quiz-options button:hover {
+    background-color: #666; /* Slightly Lighter Dark */
+    border-color: var(--heart-red); /* Heart Red on Hover */
+}
+
+/* Correct/Incorrect Answers */
+#quiz-options button.correct {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+    font-weight: bold; /* Emphasize Correct Answer */
+}
+
+#quiz-options button.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+    text-decoration: line-through; /* Indicate Incorrect Answer */
+}
+
+/* Next Button */
+#next-question {
+    background-color: var(--heart-red); /* Heart Red */
+    color: var(--dark-mode-text);
+    border: none;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    font-size: 1.2em; /* Slightly Larger */
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: all 0.3s;
+    margin: var(--spacing-unit) auto; /* Center the button */
+    display: block; /* Ensure it takes full width */
+}
+
+#next-question:hover {
+    background-color: var(--primary-color); /* Deep Pink */
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: calc(var(--spacing-unit) / 2);
+    right: var(--spacing-unit);
+    color: var(--dark-mode-text);
+    font-size: 1.7em; /* Slightly Larger */
+    cursor: pointer;
+    transition: color 0.3s; /* Smooth Transition */
+}
+
+.close-button:hover {
+    color: #ddd;
+}
+
+/* Cube Container */
+.cube-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Adjusted height */
+    width: 100%;
+}
+
+/* Improved Section Styling */
+#cube-section,
+#message,
+section {
+    padding: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    background-color: #212121; /* Darker Section */
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1); /* Light Shadow */
+    animation: fadeIn 2s ease-in-out; /* Added Fade-in Animation */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes depth {
+    0% {
+        transform: translateZ(0px);
+    }
+
+    100% {
+        transform: translateZ(20px);
+    }
+}

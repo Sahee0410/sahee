@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock Our Special Memories</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            background-color: #fce4ec; /* Light pink background */
+            margin: 0; /* Reset default margins for full-screen display */
+            display: flex; /* Use flexbox for vertical centering */
+            flex-direction: column;
+            justify-content: center; /* Vertically center content */
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+        .container {
+            padding: 20px; /* Add padding around the content */
+            max-width: 400px; /* Limit container width for better readability on larger screens */
+            margin: 0 auto; /* Center the container horizontally */
+        }
+        input[type="password"] {
+            padding: 12px; /* Increase padding for touch-friendliness */
+            margin: 10px 0; /* Adjust margin */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%; /* Make input full width */
+            box-sizing: border-box; /* Include padding and border in the width */
+        }
+        button {
+            padding: 12px 24px; /* Increase padding for touch-friendliness */
+            background-color: #e91e63; /* Pink button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Make button full width */
+        }
+        @media (max-width: 600px) { /* Add a media query for smaller screens */
+            h1 {
+                font-size: 1.5em; /* Reduce font size on smaller screens */
+            }
+        }
+    </style>
+
+    <!-- Firebase SDK (Replace with your actual configuration) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBQLVQX6Y_KaNLDXwY1VtRYrIwF8T8NgMI",
+            authDomain: "sahee-5f69f.firebaseapp.com",
+            projectId: "sahee-5f69f",
+            storageBucket: "sahee-5f69f.firebasestorage.app",
+            messagingSenderId: "737432966999",
+            appId: "1:737432966999  :web:56a8256944b29294bd9012",
+            measurementId: "G-0E44305CFR"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sahee❤️</h1>
+        <p>Enter the password to unlock the surprise!</p>
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="validatePassword()">Ready!</button>
+    </div>
+
+    <script>
+        const knownEmail = "sahee0410@gmail.com"; // Replace with your Firebase user's email
+
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+
+            auth.signInWithEmailAndPassword(knownEmail, password)
+                .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    console.log("Login successful!");
+                    sessionStorage.setItem('authenticated', 'true');
+                    sessionStorage.setItem('loginTime', new Date().getTime());
+                    // Redirect with a parameter to specify the page
+                    window.location.href = 'valentine.html'; //Redirects to valentine
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert("Awwww... Maro diko password bhuli gyo! 😭");
+                });
+        }
+    </script>
+</body>
+</html>
