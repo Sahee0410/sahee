@@ -1,6 +1,6 @@
 const ValentineSurprise = {
     herName: "Heena",
-    countdownDate: new Date("February 14, 2025 22:00:00").getTime(),
+    countdownDate: new Date("February 14, 2025 23:07:00").getTime(),
     timerElement: document.getElementById("timer"),
     gifContainer: document.getElementById("gif-container"),
     backgroundMusic: document.getElementById("background-music"),
